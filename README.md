@@ -1,4 +1,7 @@
-? Player constructor ?
+Business
+--------
+
+// generate player objects 
 
 playerOne {
   totalScore: 0,
@@ -10,13 +13,13 @@ playerTwo {
   currentTurn: false
 }
 
-Business
---------
+
 
 // roll dice function
 -> generate random integer between 1-6
 
 // set up event handlers/listeners
+
 -roll dice btn
 -hold btn
 -start/reset game btn
@@ -24,8 +27,8 @@ Business
 
 
 // hold dice function
-// add/reset? currentTurnScore function
-// set currentScore function
+// set currentTurnScore function
+// set totalScore function
 // switch turn function
 
 
@@ -39,6 +42,7 @@ UI
 -> initializes (2) player objects and sets default key:values
 // roll btn
 -> calls roll dice function
+
 // hold btn
 // display current score
 // display current turn score
