@@ -17,17 +17,17 @@ function startGame() {
 
 function rollDice() {
   let rollNumber = Math.floor((Math.random() * 6) + 1);
+  $(".dice").show();
   $(".dice").html(`<p>dice: ${rollNumber}</p>`);
   if (rollNumber === 1) {
     toggleTurn();
+    $(".currentTurnScore").empty();
   } else {
     playerOne.addCurrentScore(rollNumber);
-    $("#currentTurnScore1").text(playerOne.currentScore);
     playerTwo.addCurrentScore(rollNumber);
-    $("#currentTurnScore2").text(playerTwo.currentScore);
-    // console.log(playerOne, playerTwo)
   }
-}
+}  
+
 
 Player.prototype.addCurrentScore = function(rollNumber) {
   if (this.currentTurn === true) {
@@ -53,16 +53,34 @@ function toggleTurn() {
   } 
 
 function trackTotalScores() {
-
-
+  if (playerOne.totalScore >= 10) {
+    alert("player one is victorious!!!!!");
+    $("#roll").hide();
+    $("#hold").hide();
+  } else if (playerTwo.totalScore >= 10) {
+    alert("player two is victorious!!!!!");
+    $("#roll").hide();
+    $("#hold").hide();
+  } else {
+    toggleTurn();
+  }
 };
-// -> display total scores
-// -> monitor win condition
 
-
+function resetGame() {
+  playerOne.totalScore = 0;
+  playerOne.currentScore = 0;
+  playerOne.currentTurn = true;
+  playerTwo.totalScore = 0;
+  playerTwo.currentScore = 0;
+  playerTwo.currentTurn = 0;
+  $(".currentTurnScore").empty();
+  $(".totalScore").empty();
+  $("#roll").show();
+  $("#hold").show();
+  $(".dice").hide();
+}
  
 // UI logic
-
 
 $(document).ready(function() {
   // set up event listeners
@@ -72,12 +90,19 @@ $(document).ready(function() {
     });
     $("button#roll").on("click", function() {
       rollDice();
+      $("#currentTurnScore1").text(playerOne.currentScore);
+      $("#currentTurnScore2").text(playerTwo.currentScore);
     });
     $("button#hold").on("click", function() {
       playerOne.holdCurrentScore();
       playerTwo.holdCurrentScore();
-      toggleTurn();
-      // console.log(playerOne, playerTwo);
+      $("#totalScore1").text(playerOne.totalScore);
+      $("#totalScore2").text(playerTwo.totalScore);
+      trackTotalScores();
+      $(".currentTurnScore").empty();
+    });
+    $("button#reset").on("click", function() {
+      resetGame();
     });
   }
   setUpEventListeners();
