@@ -1,29 +1,3 @@
-Business
---------
-
-// generate player objects 
-
-playerOne {
-  totalScore: 0,
-  currentTurn: true
-}
-
-playerTwo {
-  totalScore: 0,
-  currentTurn: false
-}
-
-
-
-// roll dice function
--> generate random integer between 1-6
-
-// set up event handlers/listeners
-
--roll dice btn
--hold btn
--start/reset game btn
-
 
 
 // hold dice function
