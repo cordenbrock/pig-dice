@@ -9,16 +9,17 @@ function Player(currentScore, currentTurn, totalScore) {
 let playerOne = new Player(0, true, 0)
 let playerTwo = new Player(0, false, 0)
 
-
 function startGame() {
   $(".game").show();
+  $("#player2").toggleClass("current-turn");
   $("button#start").hide();
 }
 
 function rollDice() {
   let rollNumber = Math.floor((Math.random() * 6) + 1);
   $(".dice").show();
-  $(".dice").html(`<p>dice: ${rollNumber}</p>`);
+  $("#reset").show();
+  $("#dice").html(`<p class="dice">${rollNumber}</p>`);
   if (rollNumber === 1) {
     toggleTurn();
     $(".currentTurnScore").empty();
@@ -27,7 +28,6 @@ function rollDice() {
     playerTwo.addCurrentScore(rollNumber);
   }
 }  
-
 
 Player.prototype.addCurrentScore = function(rollNumber) {
   if (this.currentTurn === true) {
@@ -42,23 +42,20 @@ Player.prototype.holdCurrentScore = function() {
 };
 
 function toggleTurn() {
-  // -> set player boolean values
   playerOne.currentTurn = !playerOne.currentTurn;
   playerTwo.currentTurn = !playerTwo.currentTurn;
-  // -> set player current scores
   playerOne.currentScore = 0;
   playerTwo.currentScore = 0;
-  // -> display turn with UI somehow
-  // $("#").text();
-  } 
+  $(`h2`).toggleClass("current-turn");
+} 
 
 function trackTotalScores() {
   if (playerOne.totalScore >= 10) {
-    alert("player one is victorious!!!!!");
+    $('#myModal').modal(options)
     $("#roll").hide();
     $("#hold").hide();
   } else if (playerTwo.totalScore >= 10) {
-    alert("player two is victorious!!!!!");
+    $('#myModal').modal(options)
     $("#roll").hide();
     $("#hold").hide();
   } else {
@@ -67,23 +64,25 @@ function trackTotalScores() {
 };
 
 function resetGame() {
-  playerOne.totalScore = 0;
   playerOne.currentScore = 0;
   playerOne.currentTurn = true;
-  playerTwo.totalScore = 0;
+  playerOne.totalScore = 0;
   playerTwo.currentScore = 0;
-  playerTwo.currentTurn = 0;
+  playerTwo.currentTurn = false;
+  playerTwo.totalScore = 0;
   $(".currentTurnScore").empty();
   $(".totalScore").empty();
   $("#roll").show();
   $("#hold").show();
   $(".dice").hide();
+  $("#reset").hide();
+  $("#player1").addClass("current-turn");
+  $("#player2").removeClass("current-turn");
 }
  
 // UI logic
 
 $(document).ready(function() {
-  // set up event listeners
   function setUpEventListeners() {
     $("button#start").on("click", function() { 
       startGame();

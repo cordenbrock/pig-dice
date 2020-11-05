@@ -1,14 +1,76 @@
+body {
+  background: linear-gradient(0deg, rgba(240,128,128,1) 0%, rgba(241,197,121,1) 100%) no-repeat fixed;
+  background-size: cover;
+}
+
+body::after {
+  content: "";
+  background: url(../img/pig.jpg) no-repeat fixed;
+  background-size: cover;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
 .jumbotron {
   text-align: center;
+  background: linear-gradient(0deg,rgba(241,197,121,.5) 80%, rgba(240,128,128,.5) 100%) no-repeat fixed;
+  background-size: cover;
+  opacity: 0.8;
+  border-radius: 6rem 6rem 40rem 40rem;
+  border: 1rem groove rgb(173, 85, 85);
+  box-shadow: 0 0 1rem black;
+}
+
+.jumbotron h1 {
+  color: rgb(238, 159, 159);
+  text-shadow: 0 0 .25rem black;
+  font-size: 6rem;
+}
+
+.jumbo-text {
+  text-align: center;
+  font-size: 4rem;
+  color: black;
+  text-shadow: 0 0 .5rem black;
+  font-weight: 900;
 }
 
 .action-btns {
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
+  text-align: center;
 }
 
-.game {
+.btn-custom:hover {
+  background-color: rgba(0, 0, 0, 0.151);
+}
+
+.btn-custom {
+  box-shadow: 0 0 .2rem black;
+  margin: 3rem;
+  background-color: rgba(0, 0, 0, 0.055);
+}
+
+#reset {
+  margin-top: 5%
+}
+
+.playerOneArea, .playerTwoArea  {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.336);
+  border-radius: 2rem 40rem;
+  padding: 4rem;
+  box-shadow: 0 0 .5rem black;
+}
+
+.playerTwoArea {
+  border-radius: 40rem 2rem;
+}
+
+.game, #reset {
   display: none;
 }
 
@@ -24,7 +86,27 @@
     align-items: center;
 }
 
+#dice {
+  margin-top: -3rem
+}
+
 .dice {
+  background: rgb(238, 159, 159);
+  position: relative;
+  height: 90px;
+  width: 90px;
+  border: solid black;
+  font-size: 3rem;
   text-align: center;
-  margin-top: 100px;
+  margin: 0 auto;
+  box-shadow: 0 0 .2rem black;
+}
+
+h2 {
+  font-weight: 900;
+}
+
+.current-turn {
+  color: rgb(238, 159, 159);
+  text-shadow: 0 0 .25rem black;
 }

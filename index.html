@@ -9,30 +9,32 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
-        <h1>Pig Dice</h1>
+      <div class="jumbotron mt-5">
+        <h1 class="jumbo-text">Pig Dice</h1>
       </div class="start-btn">
-      <button type="button" class="btn btn-primary" id="start">Start Game</button>
+      <button type="button" class="btn btn-custom" id="start">Start Game</button>
       <div class="game">
         <div class="action-btns">
-          <button type="button" class="btn btn-primary" id="roll">Roll</button>
-          <button type="button" class="btn btn-primary" id="hold">Hold Score</button>
-          <button type="button" class="btn btn-primary" id="reset">Reset Game</button>
+          <button type="button" class="btn btn-custom" id="roll">Roll Dice</button>
+          <button type="button" class="btn btn-custom" id="hold">Hold Score</button>
         </div>
 
         <div class="row">
           <div class="col-6 playerOneArea">
-            <h2>Player One</h2>
+            <h2 id="player1" class="current-turn">Player One</h2>
             <p>Current Score: <span id="currentTurnScore1" class="currentTurnScore"></p></span>
             <p>Total Score: <span id= "totalScore1" class="totalScore"></span></p>
           </div>
           <div class="col-6 playerTwoArea">
-            <h2>Player Two</h2>
+            <h2 id="player2" class="current-turn">Player Two</h2>
             <p>Current Score: <span id="currentTurnScore2" class="currentTurnScore"></span></p>
             <p>Total Score: <span id="totalScore2" class="totalScore"></span></p>
           </div>
         </div>
-        <div class="dice">
+        <div id="dice">
+        </div>
+        <div class="action-btns">
+          <button type="button" class="btn btn-custom" id="reset">New Game</button>
         </div>
       </div>
     </div>
