@@ -4,10 +4,22 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
     <script src="js/scripts.js"></script>
     <title>Pig Dice Game</title>
   </head>
   <body>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Game -->
     <div class="container">
       <div class="jumbotron mt-5">
         <h1 class="jumbo-text">Pig Dice</h1>
@@ -18,15 +30,14 @@
           <button type="button" class="btn btn-custom" id="roll">Roll Dice</button>
           <button type="button" class="btn btn-custom" id="hold">Hold Score</button>
         </div>
-
         <div class="row">
           <div class="col-6 playerOneArea">
-            <h2 id="player1" class="current-turn">Player One</h2>
+            <h2 id="player1" class="current-turn">Oinkasaurus</h2>
             <p>Current Score: <span id="currentTurnScore1" class="currentTurnScore"></p></span>
             <p>Total Score: <span id= "totalScore1" class="totalScore"></span></p>
           </div>
           <div class="col-6 playerTwoArea">
-            <h2 id="player2" class="current-turn">Player Two</h2>
+            <h2 id="player2" class="current-turn">Pig-Wiggly</h2>
             <p>Current Score: <span id="currentTurnScore2" class="currentTurnScore"></span></p>
             <p>Total Score: <span id="totalScore2" class="totalScore"></span></p>
           </div>
