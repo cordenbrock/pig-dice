@@ -50,12 +50,12 @@ function toggleTurn() {
 } 
 
 function trackTotalScores() {
-  if (playerOne.totalScore >= 10) {
+  if (playerOne.totalScore >= 100) {
     $(".modal-body").text("Oinkasaurus Wins!")
     $('#myModal').modal();
     $("#roll").hide();
     $("#hold").hide();
-  } else if (playerTwo.totalScore >= 10) {
+  } else if (playerTwo.totalScore >= 100) {
     $(".modal-body").text("Pig-Wiggly Wins! ")
     $('#myModal').modal();
     $("#roll").hide();
